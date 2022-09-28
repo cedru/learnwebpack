@@ -15,6 +15,13 @@
             <button @click="upgrade(100, 10000)" class="button is-primary" :disabled="cookies<10000">Buy 100 cps for 10000 cookies</button>
             <button @click="upgrade(1000, 100000)" class="button is-primary" :disabled="cookies<100000">Buy 1000 cps for 100000 cookies</button>
             <button @click="clickUpgrade(1, 25)" class="button is-primary" :disabled="cookies<25">Buy +1 per click for 25 cookies</button>
+<<<<<<< HEAD
+=======
+            <button @click="clickUpgrade(2, 50)" class="button is-primary" :disabled="cookies<50">Buy +2 per click for 50 cookies</button>
+            <button @click="clickUpgrade(5, 250)" class="button is-primary" :disabled="cookies<250">Buy +5 per click for 250 cookies</button>
+            <button @click="clickUpgrade(10, 2500)" class="button is-primary" :disabled="cookies<2500">Buy +10 per click for 2500 cookies</button>
+            <button @click="clickUpgrade(100, 25000)" class="button is-primary" :disabled="cookies<25000">Buy +100 per click for 25000 cookies</button>
+>>>>>>> 6759b33 (add upgraded click)
         </div>
     </div>
 </template>
@@ -48,7 +55,11 @@ export default {
     },
     methods: {
         cookieClick(){
+<<<<<<< HEAD
             this.cookies++;
+=======
+            this.cookies += this.click;
+>>>>>>> 6759b33 (add upgraded click)
             this.clickClass = true;
             setTimeout(()=> {
                 this.clickClass = false;
@@ -61,8 +72,15 @@ export default {
             }
         },
         clickUpgrade(click, cost){
+<<<<<<< HEAD
             this.click++;
             this.cookies - cost;
+=======
+            if(this.cookies >=cost){
+                this.click += click;
+                this.cookies -= cost;
+            }
+>>>>>>> 6759b33 (add upgraded click)
         }
     }
 }
